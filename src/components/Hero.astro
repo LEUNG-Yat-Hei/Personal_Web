@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { asset } from "../lib/asset";
 import Button from "./Button.astro";
 
 const { profile } = site;
@@ -25,7 +26,7 @@ const { profile } = site;
       {profile.summary}
     </p>
     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-      <Button href={profile.resume.href} class="w-full sm:w-auto">
+      <Button href={asset(profile.resume.href)} class="w-full sm:w-auto">
         {profile.resume.label}
       </Button>
       <Button href="#uplink" variant="secondary" class="w-full sm:w-auto">

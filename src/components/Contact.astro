@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { asset } from "../lib/asset";
 import Button from "./Button.astro";
 import SectionHeading from "./SectionHeading.astro";
 
@@ -29,7 +30,7 @@ const tel = profile.phone.replace(/\s+/g, "");
           <Button href={`mailto:${profile.email}`} class="w-full sm:w-auto">
             Send a letter
           </Button>
-          <Button href={profile.resume.href} variant="secondary" class="w-full sm:w-auto">
+          <Button href={asset(profile.resume.href)} variant="secondary" class="w-full sm:w-auto">
             {profile.resume.label}
           </Button>
         </div>

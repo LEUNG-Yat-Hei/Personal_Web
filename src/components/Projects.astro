@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { asset } from "../lib/asset";
 import SectionHeading from "./SectionHeading.astro";
 
 const heading = site.nav.find((item) => item.id === "projects");
@@ -19,7 +20,7 @@ const heading = site.nav.find((item) => item.id === "projects");
             {project.collaborators?.find((partner) => partner.logo) ? (
               <div class="mb-4 flex h-28 flex-col items-center justify-end border border-ink bg-paper p-3">
                 <img
-                  src={project.collaborators.find((partner) => partner.logo)?.logo}
+                  src={asset(project.collaborators.find((partner) => partner.logo)?.logo ?? "")}
                   alt=""
                   class="max-h-16 max-w-[6rem] object-contain"
                 />
@@ -53,7 +54,7 @@ const heading = site.nav.find((item) => item.id === "projects");
                     {partner.logo && (
                       <span class="flex h-12 w-12 shrink-0 items-center justify-center border border-ink bg-paper p-1">
                         <img
-                          src={partner.logo}
+                          src={asset(partner.logo)}
                           alt={`${partner.name} emblem`}
                           class="h-full w-full object-contain"
                         />

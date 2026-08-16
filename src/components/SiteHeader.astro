@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { asset } from "../lib/asset";
 import Button from "./Button.astro";
 
 const { profile, nav } = site;
@@ -37,7 +38,7 @@ const edition = new Intl.DateTimeFormat("en-GB", {
       </nav>
 
       <div class="flex items-center gap-2">
-        <Button href={profile.resume.href} variant="secondary" class="hidden sm:inline-flex">
+        <Button href={asset(profile.resume.href)} variant="secondary" class="hidden sm:inline-flex">
           {profile.resume.label}
         </Button>
         <details class="relative lg:hidden">

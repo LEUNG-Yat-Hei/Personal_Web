@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { asset } from "../lib/asset";
 import SectionHeading from "./SectionHeading.astro";
 
 const heading = site.nav.find((item) => item.id === "experience");
@@ -26,7 +27,7 @@ const heading = site.nav.find((item) => item.id === "experience");
                     {job.logo && (
                       <div class="flex h-16 w-16 shrink-0 items-center justify-center border border-ink bg-paper p-1.5">
                         <img
-                          src={job.logo}
+                          src={asset(job.logo)}
                           alt={`${job.org} logo`}
                           class="h-full w-full object-contain"
                         />
