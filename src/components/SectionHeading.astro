@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  deck?: string;
+}
+
+const { title, deck } = Astro.props;
+---
+
+<header class="mb-8 border-b-4 border-ink pb-4">
+  <h2 class="font-serif text-4xl font-black text-ink lg:text-5xl">
+    {title}
+  </h2>
+  {
+    deck && (
+      <p class="mt-2 font-sans text-sm tracking-wide text-secondary italic">{deck}</p>
+    )
+  }
+</header>

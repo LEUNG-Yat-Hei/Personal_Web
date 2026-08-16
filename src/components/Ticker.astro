@@ -1,0 +1,31 @@
+---
+import { site } from "../data";
+
+const items = [
+  { badge: "Now", text: site.profile.status },
+  { badge: "City", text: site.profile.location },
+  { badge: "Desk", text: site.profile.title },
+  { badge: "Work", text: `${site.experience.length} internships on record` },
+  { badge: "Projects", text: `${site.projects.length} projects` },
+  ...site.education.map((item) => ({
+    badge: item.current ? "Live" : "Education",
+    text: `${item.institutionShort} — ${item.field}`,
+  })),
+];
+
+const loop = [...items, ...items];
+---
+
+<div class="overflow-hidden border-b border-ink bg-ink text-paper" aria-label="Edition ticker">
+  <div class="marquee-track">
+    {
+      loop.map((item, index) => (
+        <span class="flex items-center gap-3 px-6 py-2 font-mono text-xs tracking-widest uppercase">
+          <span class="bg-accent px-1.5 py-0.5 text-paper">{item.badge}</span>
+          <span>{item.text}</span>
+          {index < loop.length - 1 && <span class="text-neutral-400" aria-hidden="true">◆</span>}
+        </span>
+      ))
+    }
+  </div>
+</div>

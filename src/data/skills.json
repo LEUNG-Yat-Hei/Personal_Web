@@ -1,0 +1,30 @@
+[
+  {
+    "id": "languages-human",
+    "label": "LANG",
+    "terminal": "locale",
+    "items": ["Cantonese — native", "Mandarin — fluent", "English — fluent"],
+    "accent": "tertiary"
+  },
+  {
+    "id": "languages-code",
+    "label": "CODE",
+    "terminal": "which",
+    "items": ["Python", "C++", "Java", "TypeScript", "Kotlin", "Shell"],
+    "accent": "primary"
+  },
+  {
+    "id": "tech",
+    "label": "TECH",
+    "terminal": "pkg list",
+    "items": [
+      "GitHub Copilot",
+      "LangGraph",
+      "LangChain",
+      "React",
+      "FastAPI",
+      "Spring Boot"
+    ],
+    "accent": "secondary"
+  }
+]

@@ -1,0 +1,72 @@
+---
+import { site } from "../data";
+import Button from "./Button.astro";
+
+const { profile, nav } = site;
+const edition = new Intl.DateTimeFormat("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(new Date());
+---
+
+<header class="sticky top-0 z-40 border-b border-ink bg-paper">
+  <div class="mx-auto max-w-screen-xl px-4">
+    <div class="hidden items-center justify-between border-b border-ink py-2 font-mono text-[11px] tracking-widest uppercase md:flex">
+      <p>Vol. I</p>
+      <p>{edition}</p>
+      <p>{profile.location} Edition</p>
+    </div>
+
+    <div class="flex items-center justify-between gap-4 py-3">
+      <a href="#init" class="min-h-11 font-serif text-xl font-normal tracking-tight text-ink italic sm:text-2xl">
+        The Ledger
+      </a>
+
+      <nav class="hidden items-center lg:flex" aria-label="Primary">
+        {
+          nav.map((item) => (
+            <a
+              href={item.href}
+              class="min-h-11 px-3 py-2 font-sans text-xs tracking-widest text-ink uppercase transition-colors duration-200 hover:text-accent"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <Button href={profile.resume.href} variant="secondary" class="hidden sm:inline-flex">
+          {profile.resume.label}
+        </Button>
+        <details class="relative lg:hidden">
+          <summary
+            class="flex min-h-11 min-w-11 cursor-pointer list-none items-center justify-center border border-ink px-3 font-sans text-xs tracking-widest uppercase"
+            aria-label="Open menu"
+          >
+            Menu
+          </summary>
+          <div class="absolute right-0 z-50 mt-1 w-56 border border-ink bg-paper">
+            {
+              nav.map((item) => (
+                <a
+                  href={item.href}
+                  class="block min-h-11 border-b border-ink px-4 py-3 font-sans text-xs tracking-widest uppercase last:border-b-0 hover:bg-hover"
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

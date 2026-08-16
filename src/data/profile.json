@@ -1,0 +1,23 @@
+{
+  "name": {
+    "family": "LEUNG",
+    "given": "Yat Hei",
+    "english": "Terrence",
+    "display": "Terrence Leung",
+    "formal": "LEUNG Yat Hei, Terrence",
+    "monogram": "TY"
+  },
+  "handle": "yathei",
+  "title": "AI Engineer and FinTech",
+  "status": "Incoming MSc Financial Technology",
+  "location": "Hong Kong",
+  "tagline": "Pipelines, agents, and the numbers they move.",
+  "summary": "Computer Science graduate from HKUST and incoming MSc Financial Technology student at CUHK. Recent internships at AIA Group, Chiyu Banking Corporation, and the Hospital Authority — building LLM agents, RAG systems, and data pipelines for finance and operations.",
+  "email": "leungyathei@gmail.com",
+  "phone": "5543-9385",
+  "resume": {
+    "href": "/LEUNG Yat Hei Resume.pdf",
+    "label": "The C.V.",
+    "filename": "LEUNG Yat Hei Resume.pdf"
+  }
+}

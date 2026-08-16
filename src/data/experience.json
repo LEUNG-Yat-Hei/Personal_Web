@@ -1,0 +1,60 @@
+[
+  {
+    "id": "aia-ai-intern",
+    "org": "AIA Group",
+    "role": "AI Engineer Intern",
+    "team": "IT Finance and Planning, Group Technology",
+    "period": {
+      "start": "2026-06",
+      "end": "2026-08",
+      "label": "Jun 2026 – Aug 2026"
+    },
+    "bullets": [
+      "Built an end-to-end Python data pipeline that extracts, validates and consolidates IT financial data across 18 markets, powering an HTML dashboard used by the Group CTO and senior IT leadership for strategic spend reviews.",
+      "Integrated an LLM-powered analysis agent that automatically generates financial commentary, flags spending anomalies and produces governance-ready summaries across six key dashboard tabs, reducing manual review effort.",
+      "Partnered with the Malaysia IT Finance Team to identify workflow bottlenecks and deliver automation solutions, including Excel template generation, and iterative dashboard enhancements based on evolving business requirements."
+    ],
+    "stack": ["Python", "Github Copilot", "HTML dashboard", "Excel"],
+    "accent": "primary",
+    "logo": "/aia-logo.jpg"
+  },
+  {
+    "id": "chiyu-fintech-intern",
+    "org": "Chiyu Banking Corporation Limited",
+    "orgNative": "集友銀行",
+    "role": "Fintech Intern",
+    "team": "IT Development Team",
+    "period": {
+      "start": "2025-06",
+      "end": "2025-11",
+      "label": "Jun 2025 – Nov 2025"
+    },
+    "bullets": [
+      "Developed a multi-agent chatbot that leveraged RAG to answer queries from internal documents, retrieve real-time financial news from trusted sources, and continuously update its knowledge base with a data ingestion pipeline.",
+      "Implemented an automated web data pipeline to collect financial product information from competing institutions, ingesting the data into the chatbot's knowledge base to support up-to-date market intelligence and product comparison.",
+      "Collaborated with cross-functional stakeholders and external vendors to evaluate enterprise AI, KYC and stablecoin solutions, supporting technology adoption and strategic decision-making."
+    ],
+    "stack": ["LangChain", "LangGraph", "RAG", "Multi-agent"],
+    "accent": "secondary",
+    "logo": "/chiyu-logo.webp"
+  },
+  {
+    "id": "ha-data-intern",
+    "org": "Hospital Authority",
+    "role": "Data Engineering Intern",
+    "team": "Private Cloud Team",
+    "period": {
+      "start": "2024-06",
+      "end": "2024-08",
+      "label": "Jun 2024 – Aug 2024"
+    },
+    "bullets": [
+      "Implemented a Kibana monitoring watcher and dashboards to analyze log entries, enhancing system resilience with automated alerts for CPU usage exceeding 70% on remote servers.",
+      "Extracted useful data from a large volume of unstructured log for integration into the dashboard system using Grok Pattern in Logstash.",
+      "Automated backups of remote device configuration logs and developed a command-line tool for secure file transfers from remote devices to local systems using Shell scripting, protecting data security and reducing manual workload."
+    ],
+    "stack": ["Kibana", "Logstash", "Shell"],
+    "accent": "tertiary",
+    "logo": "/ha-logo.jpg"
+  }
+]

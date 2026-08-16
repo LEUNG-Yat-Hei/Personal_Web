@@ -1,0 +1,47 @@
+---
+import { site } from "../data";
+
+const heading = site.nav.find((item) => item.id === "stack");
+---
+
+<section id="stack" class="scroll-mt-24 border-b border-ink bg-ink text-paper">
+  <div class="mx-auto max-w-screen-xl px-4 py-16">
+    <header class="mb-8 border-b-4 border-paper pb-4">
+      <h2 class="font-serif text-4xl font-black text-paper lg:text-5xl">
+        {heading?.label ?? "The Desk"}
+      </h2>
+      <p class="mt-2 font-sans text-sm text-neutral-400 italic">
+        {heading?.prompt}
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3">
+      {
+        site.skills.map((group, index) => (
+          <article
+            class:list={[
+              "border-b border-paper/30 py-6 md:border-b-0 md:px-6",
+              index < site.skills.length - 1 && "md:border-r",
+              index === 0 && "md:pl-0",
+              index === site.skills.length - 1 && "md:pr-0",
+            ]}
+          >
+            <p class="font-mono text-xs tracking-widest text-accent uppercase">
+              Col. {index + 1} · {group.label}
+            </p>
+            <p class="mt-2 font-mono text-[11px] tracking-widest text-neutral-400 uppercase">
+              {group.terminal}
+            </p>
+            <ul class="mt-5 space-y-2">
+              {group.items.map((item) => (
+                <li class="border-b border-paper/20 py-2 font-body text-sm last:border-b-0">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

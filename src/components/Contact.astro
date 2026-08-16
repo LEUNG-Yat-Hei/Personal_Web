@@ -1,0 +1,63 @@
+---
+import { site } from "../data";
+import Button from "./Button.astro";
+import SectionHeading from "./SectionHeading.astro";
+
+const heading = site.nav.find((item) => item.id === "uplink");
+const { profile } = site;
+const tel = profile.phone.replace(/\s+/g, "");
+---
+
+<section id="uplink" class="scroll-mt-24 newsprint-texture">
+  <div class="mx-auto max-w-screen-xl px-4 py-16">
+    <SectionHeading
+      title={heading?.label ?? "Letters"}
+      deck={heading?.prompt}
+    />
+
+    <div class="grid grid-cols-1 border-t border-l border-ink lg:grid-cols-12">
+      <div class="border-r border-b border-ink p-6 lg:col-span-7 lg:p-8">
+        <p class="font-serif text-2xl font-bold">
+          Correspondence may be addressed to the author.
+        </p>
+        <p class="drop-cap mt-6 text-justify text-base leading-relaxed">
+          For roles, collaborations, or questions about the work reported in
+          this edition, use the wire below. The curriculum vitae is filed with
+          the public record.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button href={`mailto:${profile.email}`} class="w-full sm:w-auto">
+            Send a letter
+          </Button>
+          <Button href={profile.resume.href} variant="secondary" class="w-full sm:w-auto">
+            {profile.resume.label}
+          </Button>
+        </div>
+      </div>
+      <dl class="border-r border-b border-ink lg:col-span-5">
+        <div class="border-b border-ink px-6 py-4">
+          <dt class="font-mono text-[11px] tracking-widest text-caption uppercase">From</dt>
+          <dd class="mt-1 font-serif text-xl">{profile.name.formal}</dd>
+        </div>
+        <div class="border-b border-ink px-6 py-4">
+          <dt class="font-mono text-[11px] tracking-widest text-caption uppercase">Post</dt>
+          <dd class="mt-1">
+            <a class="underline-offset-4 decoration-2 decoration-accent hover:underline" href={`mailto:${profile.email}`}>
+              {profile.email}
+            </a>
+          </dd>
+        </div>
+        <div class="border-b border-ink px-6 py-4">
+          <dt class="font-mono text-[11px] tracking-widest text-caption uppercase">Telephone</dt>
+          <dd class="mt-1">
+            <a class="hover:text-accent" href={`tel:${tel}`}>{profile.phone}</a>
+          </dd>
+        </div>
+        <div class="px-6 py-4">
+          <dt class="font-mono text-[11px] tracking-widest text-caption uppercase">Bureau</dt>
+          <dd class="mt-1">{profile.location}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

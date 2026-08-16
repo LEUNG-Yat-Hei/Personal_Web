@@ -1,0 +1,27 @@
+---
+import { site } from "../data";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t-4 border-ink bg-paper">
+  <div class="mx-auto max-w-screen-xl px-4 py-10">
+    <p class="text-center font-serif text-2xl tracking-[1em] text-neutral-400">
+      ✧ ✧ ✧
+    </p>
+    <div class="mt-8 grid grid-cols-1 gap-6 border-t border-ink pt-8 md:grid-cols-12">
+      <div class="md:col-span-6">
+        <p class="font-serif text-2xl italic">The Ledger</p>
+        <p class="mt-2 max-w-md text-sm leading-relaxed text-secondary">
+          A personal broadsheet for {site.profile.name.formal}. All the news
+          that fits on one page.
+        </p>
+      </div>
+      <div class="font-mono text-xs tracking-widest text-caption uppercase md:col-span-6 md:text-right">
+        <p>Edition: Vol. I · {year}</p>
+        <p class="mt-1">Printed in {site.profile.location}</p>
+        <p class="mt-1">© {year} {site.profile.name.display}</p>
+      </div>
+    </div>
+  </div>
+</footer>

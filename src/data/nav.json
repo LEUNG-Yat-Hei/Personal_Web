@@ -1,0 +1,38 @@
+[
+  {
+    "id": "init",
+    "href": "#init",
+    "label": "Description",
+    "prompt": ""
+  },
+  {
+    "id": "education",
+    "href": "#education",
+    "label": "Education",
+    "prompt": "Schools of record"
+  },
+  {
+    "id": "experience",
+    "href": "#experience",
+    "label": "Experiences",
+    "prompt": "Reported from the field"
+  },
+  {
+    "id": "projects",
+    "href": "#projects",
+    "label": "Projects",
+    "prompt": "Independent work"
+  },
+  {
+    "id": "stack",
+    "href": "#stack",
+    "label": "The Desk",
+    "prompt": "Languages and instruments"
+  },
+  {
+    "id": "uplink",
+    "href": "#uplink",
+    "label": "Letters",
+    "prompt": "Write to the editor"
+  }
+]

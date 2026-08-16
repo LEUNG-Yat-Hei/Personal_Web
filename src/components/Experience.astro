@@ -1,0 +1,78 @@
+---
+import { site } from "../data";
+import SectionHeading from "./SectionHeading.astro";
+
+const heading = site.nav.find((item) => item.id === "experience");
+---
+
+<section id="experience" class="scroll-mt-24 newsprint-texture border-b border-ink">
+  <div class="mx-auto max-w-screen-xl px-4 py-16">
+    <SectionHeading
+      title={heading?.label ?? "Experiences"}
+      deck={heading?.prompt}
+    />
+
+    <ol class="border-t border-ink">
+      {
+        site.experience.map((job, index) => (
+          <li class="border-b border-ink py-8 last:border-b-0">
+            <article>
+              <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+                <div class="lg:col-span-4">
+                  <p class="font-mono text-xs tracking-widest text-accent uppercase">
+                    Experience {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <div class="mt-3 flex items-start gap-4">
+                    {job.logo && (
+                      <div class="flex h-16 w-16 shrink-0 items-center justify-center border border-ink bg-paper p-1.5">
+                        <img
+                          src={job.logo}
+                          alt={`${job.org} logo`}
+                          class="h-full w-full object-contain"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h3 class="font-serif text-2xl font-bold text-ink lg:text-3xl">
+                        {job.org}
+                        {job.orgNative && (
+                          <span class="mt-1 block font-body text-base font-normal text-secondary">
+                            {job.orgNative}
+                          </span>
+                        )}
+                      </h3>
+                    </div>
+                  </div>
+                  <p class="mt-3 font-sans text-xs tracking-widest text-secondary uppercase">
+                    {job.role}
+                  </p>
+                  <p class="mt-1 text-sm text-caption">{job.team}</p>
+                  <p class="mt-4 font-mono text-xs tracking-widest text-caption uppercase">
+                    {job.period.label}
+                  </p>
+                </div>
+                <div class="lg:col-span-8">
+                  <ul class="space-y-3 text-justify text-sm leading-relaxed text-ink">
+                    {job.bullets.map((bullet) => (
+                      <li class="pl-4 -indent-4">
+                        <span class="mr-2 text-accent">¶</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                  <ul class="mt-5 flex flex-wrap gap-2">
+                    {job.stack.map((item) => (
+                      <li class="border border-ink px-2 py-1 font-mono text-[11px] tracking-widest uppercase">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

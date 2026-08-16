@@ -1,0 +1,77 @@
+[
+  {
+    "id": "ekyc",
+    "title": "Validating eKYC Defense Capabilities Against Deepfake",
+    "codename": "eKYC",
+    "period": {
+      "start": "2026-09",
+      "end": "2027-06",
+      "label": "Sep 2026 – Jun 2027"
+    },
+    "summary": "Generate attack materials using various deepfake tools to validate the effectiveness of vendors' detection solutions.",
+    "bullets": [],
+    "stack": ["eKYC", "Deepfake", "Deep Learning"],
+    "featured": true,
+    "accent": "primary",
+    "collaborators": [
+      {
+        "name": "Bank of China",
+        "nameNative": "中國銀行",
+        "role": "Industry partner",
+        "logo": "/boc-logo.png"
+      }
+    ]
+  },
+  {
+    "id": "genai-tutor",
+    "title": "Generative AI Tutor for Programming Courses",
+    "codename": "FYP",
+    "period": {
+      "start": "2025-06",
+      "end": "2026-06",
+      "label": "Jun 2025 – Jun 2026"
+    },
+    "summary": "AI-powered course generation platform for programming classes.",
+    "bullets": [
+      "Led system architecture, implementation and testing of an AI-powered course generation platform.",
+      "Developed a LangGraph-based multi-agent RAG pipeline to automate high-quality course material generation."
+    ],
+    "stack": ["LangGraph", "RAG", "Multi-agent"],
+    "featured": true,
+    "accent": "primary"
+  },
+  {
+    "id": "crypto-stream",
+    "title": "Crypto Exchange Market Data Stream Analyzer",
+    "codename": "STREAM",
+    "period": {
+      "start": "2026-04",
+      "end": "2026-05",
+      "label": "Apr 2026 – May 2026"
+    },
+    "summary": "Real-time crypto trade pipeline from Binance through Kafka to a FastAPI analytics layer.",
+    "bullets": [
+      "Implemented a real-time data streaming pipeline that ingests cryptocurrency trade data from the Binance WebSocket API using Apache Kafka, stores time-series data in Redis, and exposes a FastAPI REST API for analytics."
+    ],
+    "stack": ["Apache Kafka", "Redis", "FastAPI", "Binance WebSocket"],
+    "featured": true,
+    "accent": "tertiary"
+  },
+  {
+    "id": "android-cyber",
+    "title": "Mobile Application Development Project",
+    "codename": "CYBER",
+    "period": {
+      "start": "2025-02",
+      "end": "2025-05",
+      "label": "Feb 2025 – May 2025"
+    },
+    "summary": "Android app that checks URLs, IPs, domains, and file hashes for malicious activity.",
+    "bullets": [
+      "Collaborated in a team to design and build an Android application enhancing cybersecurity by assessing the safety of URLs, IPs, domains, and file hashes with a dashboard highlighting the most searched malicious URLs using Kotlin."
+    ],
+    "stack": ["Kotlin", "Android"],
+    "featured": false,
+    "accent": "secondary"
+  }
+]

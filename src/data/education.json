@@ -1,0 +1,39 @@
+[
+  {
+    "id": "cuhk-msc-fintech",
+    "institution": "The Chinese University of Hong Kong",
+    "institutionShort": "CUHK",
+    "degree": "Master of Science",
+    "field": "Financial Technology",
+    "period": {
+      "start": "2026-09",
+      "end": "2027-07",
+      "label": "Sep 2026 – Jul 2027"
+    },
+    "current": true,
+    "logo": "/cuhk-logo.jpg",
+    "highlights": []
+  },
+  {
+    "id": "hkust-beng-cs",
+    "institution": "The Hong Kong University of Science and Technology",
+    "institutionShort": "HKUST",
+    "degree": "Bachelor of Engineering",
+    "field": "Computer Science",
+    "period": {
+      "start": "2022-09",
+      "end": "2026-07",
+      "label": "Sep 2022 – Jul 2026"
+    },
+    "gpa": {
+      "value": "3.386",
+      "scale": "4.3",
+      "label": "Major CGA 3.386 / 4.3"
+    },
+    "logo": "/hkust-logo.png",
+    "highlights": [
+      "University Scholarship",
+      "Dean's List (Year 1 Fall & Spring Semester)"
+    ]
+  }
+]
