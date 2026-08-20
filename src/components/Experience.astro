@@ -13,10 +13,10 @@ const heading = site.nav.find((item) => item.id === "experience");
       deck={heading?.prompt}
     />
 
-    <ol class="border-t border-ink">
+    <ol class="border-t border-r border-l border-ink">
       {
         site.experience.map((job, index) => (
-          <li class="border-b border-ink py-8 last:border-b-0">
+          <li class="border-b border-ink px-4 py-8">
             <article>
               <div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
                 <div class="lg:col-span-4">

@@ -1,0 +1,133 @@
+---
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import { site } from "../../data";
+import Layout from "../../layouts/Layout.astro";
+import { href } from "../../lib/asset";
+import { formatPostDate, getPublishedPosts, readingTime, type BlogPost } from "../../lib/blog";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: BlogPost;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+---
+
+<Layout title={`${post.data.title} — ${site.meta.title}`} description={post.data.description}>
+  <SiteHeader />
+  <main id="main">
+    <article class="newsprint-texture border-b border-ink">
+      <header class="border-b border-ink">
+        <div class="mx-auto max-w-screen-xl px-4 py-16">
+          <p class="font-mono text-xs tracking-widest text-accent uppercase">
+            {post.data.kicker ?? "Dispatch"}
+            {post.data.draft && " · Desk copy"}
+          </p>
+          <h1
+            class="mt-3 max-w-4xl font-serif text-4xl leading-[0.95] font-normal tracking-tight text-ink sm:text-5xl lg:text-7xl"
+          >
+            {post.data.title}
+          </h1>
+          <p class="mt-6 max-w-3xl font-serif text-xl text-secondary italic lg:text-2xl">
+            {post.data.description}
+          </p>
+          <dl
+            class="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-ink pt-4 font-mono text-[11px] tracking-widest text-caption uppercase"
+          >
+            <div>
+              <dt class="sr-only">Published</dt>
+              <dd>{formatPostDate(post.data.pubDate)}</dd>
+            </div>
+            {
+              post.data.updatedDate && (
+                <div>
+                  <dt class="sr-only">Updated</dt>
+                  <dd>Revised {formatPostDate(post.data.updatedDate)}</dd>
+                </div>
+              )
+            }
+            <div>
+              <dt class="sr-only">Reading time</dt>
+              <dd>{readingTime(post.body)}</dd>
+            </div>
+            <div>
+              <dt class="sr-only">Bureau</dt>
+              <dd>{site.profile.location}</dd>
+            </div>
+          </dl>
+        </div>
+      </header>
+
+      <div class="mx-auto max-w-screen-xl px-4 py-16">
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-12">
+          {
+            toc.length > 0 && (
+              <aside class="lg:col-span-3">
+                <div class="border border-ink bg-paper p-5 lg:sticky lg:top-28">
+                  <p class="font-mono text-[11px] tracking-widest text-accent uppercase">
+                    In this column
+                  </p>
+                  <ol class="mt-4 space-y-2">
+                    {toc.map((heading) => (
+                      <li>
+                        <a
+                          href={`#${heading.slug}`}
+                          class:list={[
+                            "block text-sm leading-snug text-ink underline-offset-4 decoration-2 decoration-accent hover:underline",
+                            heading.depth === 3 && "pl-3 text-secondary",
+                          ]}
+                        >
+                          {heading.text}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </aside>
+            )
+          }
+
+          <div class:list={[toc.length > 0 ? "lg:col-span-9 lg:pr-4" : "lg:col-span-8 lg:col-start-3 lg:pr-4"]}>
+            <div class="ledger-prose">
+              <Content />
+            </div>
+
+            {
+              post.data.tags.length > 0 && (
+                <ul class="mt-12 flex flex-wrap gap-2 border-t border-ink pt-6">
+                  {post.data.tags.map((tag) => (
+                    <li class="border border-ink px-2 py-1 font-mono text-[11px] tracking-widest uppercase">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )
+            }
+
+            <p class="mt-8 font-mono text-[11px] tracking-widest text-caption uppercase">
+              <a href={href("/blog")} class="hover:text-accent">
+                All dispatches
+              </a>
+              <span aria-hidden="true"> · </span>
+              <a href={href("/")} class="hover:text-accent">
+                Front page
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  <SiteFooter />
+</Layout>

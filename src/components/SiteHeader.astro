@@ -1,6 +1,6 @@
 ---
 import { site } from "../data";
-import { asset } from "../lib/asset";
+import { asset, href } from "../lib/asset";
 import Button from "./Button.astro";
 
 const { profile, nav } = site;
@@ -9,6 +9,13 @@ const edition = new Intl.DateTimeFormat("en-GB", {
   month: "long",
   year: "numeric",
 }).format(new Date());
+const path = Astro.url.pathname.replace(/\/$/, "");
+
+function itemIsCurrent(itemHref: string): boolean {
+  if (itemHref.startsWith("#")) return false;
+  const target = href(itemHref).replace(/\/$/, "");
+  return path === target || path.startsWith(`${target}/`);
+}
 ---
 
 <header class="sticky top-0 z-40 border-b border-ink bg-paper">
@@ -20,7 +27,7 @@ const edition = new Intl.DateTimeFormat("en-GB", {
     </div>
 
     <div class="flex items-center justify-between gap-4 py-3">
-      <a href="#init" class="min-h-11 font-serif text-xl font-normal tracking-tight text-ink italic sm:text-2xl">
+      <a href={href("/")} class="min-h-11 font-serif text-xl font-normal tracking-tight text-ink italic sm:text-2xl">
         The Ledger
       </a>
 
@@ -28,8 +35,12 @@ const edition = new Intl.DateTimeFormat("en-GB", {
         {
           nav.map((item) => (
             <a
-              href={item.href}
-              class="min-h-11 px-3 py-2 font-sans text-xs tracking-widest text-ink uppercase transition-colors duration-200 hover:text-accent"
+              href={href(item.href)}
+              aria-current={itemIsCurrent(item.href) ? "page" : undefined}
+              class:list={[
+                "min-h-11 px-2 py-2 font-sans text-xs tracking-widest uppercase transition-colors duration-200 hover:text-accent xl:px-3",
+                itemIsCurrent(item.href) ? "text-accent" : "text-ink",
+              ]}
             >
               {item.label}
             </a>
@@ -52,8 +63,12 @@ const edition = new Intl.DateTimeFormat("en-GB", {
             {
               nav.map((item) => (
                 <a
-                  href={item.href}
-                  class="block min-h-11 border-b border-ink px-4 py-3 font-sans text-xs tracking-widest uppercase last:border-b-0 hover:bg-hover"
+                  href={href(item.href)}
+                  aria-current={itemIsCurrent(item.href) ? "page" : undefined}
+                  class:list={[
+                    "block min-h-11 border-b border-ink px-4 py-3 font-sans text-xs tracking-widest uppercase last:border-b-0 hover:bg-hover",
+                    itemIsCurrent(item.href) && "text-accent",
+                  ]}
                 >
                   {item.label}
                 </a>

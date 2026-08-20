@@ -1,5 +1,6 @@
 ---
 import Contact from "../components/Contact.astro";
+import Dispatches from "../components/Dispatches.astro";
 import Education from "../components/Education.astro";
 import Experience from "../components/Experience.astro";
 import Hero from "../components/Hero.astro";
@@ -15,11 +16,12 @@ import Layout from "../layouts/Layout.astro";
 <Layout title={site.meta.title} description={site.meta.description}>
   <SiteHeader />
   <Ticker />
-  <main>
+  <main id="main">
     <Hero />
     <Education />
     <Experience />
     <Projects />
+    <Dispatches />
     <Skills />
     <Contact />
   </main>

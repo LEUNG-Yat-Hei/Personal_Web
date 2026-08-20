@@ -1,0 +1,77 @@
+---
+import { site } from "../data";
+import { href } from "../lib/asset";
+import { formatPostDate, getPublishedPosts, postHref, readingTime } from "../lib/blog";
+import SectionHeading from "./SectionHeading.astro";
+
+const heading = site.nav.find((item) => item.id === "dispatches");
+const posts = await getPublishedPosts();
+---
+
+<section id="dispatches" class="scroll-mt-24 newsprint-texture border-b border-ink">
+  <div class="mx-auto max-w-screen-xl px-4 py-16">
+    <SectionHeading
+      title={heading?.label ?? "Dispatches"}
+      deck={heading?.prompt}
+    />
+
+    {
+      posts.length === 0 ? (
+        <p class="border border-ink px-6 py-10 text-center text-secondary">
+          No dispatches on file yet.
+        </p>
+      ) : (
+        <div class="grid grid-cols-1 border-t border-l border-ink md:grid-cols-2">
+          {posts.map((post, index) => (
+            <article class="hard-shadow-hover flex flex-col border-r border-b border-ink bg-paper p-6">
+              <p class="font-mono text-xs tracking-widest text-accent uppercase">
+                {post.data.kicker ?? `Column ${String(index + 1).padStart(2, "0")}`}
+              </p>
+              <h3 class="mt-2 font-serif text-2xl font-bold text-ink">
+                <a
+                  href={postHref(post)}
+                  class="underline-offset-4 decoration-2 decoration-accent hover:underline"
+                >
+                  {post.data.title}
+                </a>
+              </h3>
+              <p class="mt-2 font-mono text-[11px] tracking-widest text-caption uppercase">
+                {formatPostDate(post.data.pubDate)} · {readingTime(post.body)}
+                {post.data.draft && " · Desk copy"}
+              </p>
+              <p class="mt-3 flex-1 text-justify text-sm leading-relaxed text-secondary">
+                {post.data.description}
+              </p>
+              {post.data.tags.length > 0 && (
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  {post.data.tags.map((tag) => (
+                    <li class="border border-ink px-2 py-1 font-mono text-[11px] tracking-widest uppercase">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p class="mt-6">
+                <a
+                  href={postHref(post)}
+                  class="font-sans text-xs font-semibold tracking-widest uppercase underline-offset-4 decoration-2 decoration-accent hover:underline"
+                >
+                  Read dispatch
+                </a>
+              </p>
+            </article>
+          ))}
+        </div>
+      )
+    }
+
+    <p class="mt-8">
+      <a
+        href={href("/blog")}
+        class="font-sans text-xs font-semibold tracking-widest uppercase underline-offset-4 decoration-2 decoration-accent hover:underline"
+      >
+        The full index
+      </a>
+    </p>
+  </div>
+</section>

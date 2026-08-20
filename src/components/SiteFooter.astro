@@ -1,5 +1,6 @@
 ---
 import { site } from "../data";
+import { href } from "../lib/asset";
 
 const year = new Date().getFullYear();
 ---
@@ -20,6 +21,9 @@ const year = new Date().getFullYear();
       <div class="font-mono text-xs tracking-widest text-caption uppercase md:col-span-6 md:text-right">
         <p>Edition: Vol. I · {year}</p>
         <p class="mt-1">Printed in {site.profile.location}</p>
+        <p class="mt-1">
+          <a href={href("/blog")} class="hover:text-accent">Dispatches</a>
+        </p>
         <p class="mt-1">© {year} {site.profile.name.display}</p>
       </div>
     </div>

@@ -62,7 +62,8 @@ body {
   transform: translate(-2px, -2px);
 }
 
-.drop-cap::first-letter {
+.drop-cap::first-letter,
+.ledger-prose > p:first-of-type::first-letter {
   float: left;
   margin-right: 0.7rem;
   font-family: var(--font-serif);
@@ -70,6 +71,177 @@ body {
   font-weight: 900;
   line-height: 0.8;
   color: var(--color-ink);
+}
+
+.ledger-prose {
+  color: var(--color-ink);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.ledger-prose > * + * {
+  margin-top: 1.25rem;
+}
+
+.ledger-prose h2,
+.ledger-prose h3,
+.ledger-prose h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  scroll-margin-top: 7rem;
+}
+
+.ledger-prose h2 {
+  margin-top: 2.75rem;
+  border-bottom: 4px solid var(--color-ink);
+  padding-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.ledger-prose h3 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+
+.ledger-prose h4 {
+  margin-top: 1.75rem;
+  font-size: 1.2rem;
+}
+
+.ledger-prose p {
+  text-align: justify;
+}
+
+.ledger-prose a {
+  color: var(--color-ink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--color-accent);
+}
+
+.ledger-prose a:hover {
+  text-decoration: underline;
+}
+
+.ledger-prose strong {
+  font-weight: 600;
+}
+
+.ledger-prose em {
+  font-style: italic;
+}
+
+.ledger-prose del {
+  color: var(--color-secondary);
+}
+
+.ledger-prose ul,
+.ledger-prose ol {
+  padding-left: 1.25rem;
+}
+
+.ledger-prose ul {
+  list-style: disc;
+}
+
+.ledger-prose ol {
+  list-style: decimal;
+}
+
+.ledger-prose li + li {
+  margin-top: 0.4rem;
+}
+
+.ledger-prose li {
+  padding-left: 0.25rem;
+}
+
+.ledger-prose input[type="checkbox"] {
+  margin-right: 0.5rem;
+  accent-color: var(--color-ink);
+}
+
+.ledger-prose blockquote {
+  margin: 2rem 0;
+  border-left: 4px solid var(--color-ink);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.ledger-prose blockquote p {
+  text-align: left;
+}
+
+.ledger-prose hr {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--color-ink);
+}
+
+.ledger-prose code {
+  border: 1px solid var(--color-ink);
+  background: var(--color-muted);
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.ledger-prose pre {
+  overflow-x: auto;
+  border: 1px solid var(--color-ink);
+  background: #fff;
+  padding: 1rem 1.1rem;
+}
+
+.ledger-prose pre code {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.ledger-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.ledger-prose th,
+.ledger-prose td {
+  border: 1px solid var(--color-ink);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ledger-prose th {
+  background: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ledger-prose img {
+  display: block;
+  max-width: 12rem;
+  margin: 2rem auto;
+  border: 1px solid var(--color-ink);
+  background: #fff;
+  padding: 1rem;
+}
+
+.ledger-prose img + em,
+.ledger-prose p:has(img) + p:has(em) {
+  display: block;
+  text-align: center;
 }
 
 .marquee-track {
